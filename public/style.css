@@ -1,0 +1,80 @@
+body {
+  background-color: #F8F8F8;
+  color: #0C0533;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 18px;
+}
+
+.container {
+  max-width: 400px;
+  width: 98%;
+  display: table;
+  margin: 0 auto;
+  margin-top: 24px;
+}
+
+input {
+  border: 2px solid #0C0533;
+  background-color: #F8F8F8;
+  box-sizing: border-box;
+  border-radius: 12px;
+  display: block;
+  width: 100%;
+  line-height: 1;
+  padding: 8px 0 8px 10px;
+  outline: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 0px;
+  line-height: 1;
+  font-size: 48px;
+}
+
+img {
+  margin-top: 24px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  color: #0C0533;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 14px 0;
+}
+
+ul li:before {
+  content: url(assets/box.svg);
+  padding: 10px 10px;
+}
+
+ul li:hover {
+  text-decoration: line-through;
+  text-decoration-color: #3818E5;
+  cursor: pointer;
+}
+
+.checked {
+  color: #3818E5;
+}
+
+.checked:before {
+  content: url(assets/check.svg);
+  padding: 10px 10px;
+}
+
+.checked:hover {
+  text-decoration: none;
+}
+
+.checked:hover:after {
+  content: " (remove)";
+  color: #B71C06;
+  text-align: right;
+}
