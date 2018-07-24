@@ -5,6 +5,10 @@ body {
   font-size: 18px;
 }
 
+#root {
+  margin-top: 40px;
+}
+
 .container {
   max-width: 400px;
   width: 98%;
