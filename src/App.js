@@ -3,41 +3,49 @@ import Checkbox from './Checkbox';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
+let nextId = 1;
 class App extends React.Component {
+  
   state = {
     data: []
   };
 
   componentDidMount() {
-    this.setState({data: [
-      {
-        id: 1,
-        text: 'Life can be overwhelming 😅',
-        done: false
-      },
-      {
-        id: 2,
-        text: 'Small, achievable todo lists can help ✍️',
-        done: false
-      },
-      {
-        id: 3,
-        text: 'Go get your shit done ☕',
-        done: true
-      }
-    ]});
+    let cachedTodos = sessionStorage.getItem('data');
+
+    if(cachedTodos) {
+      this.setState({data: JSON.parse(cachedTodos)});
+    } else {
+      this.setState({data: [
+        {
+          id: 1,
+          text: 'Life can be overwhelming 😅',
+          done: false
+        },
+        {
+          id: 2,
+          text: 'Small, achievable todo lists can help ✍️',
+          done: false
+        },
+        {
+          id: 3,
+          text: 'Go get your shit done ☕',
+          done: true
+        }
+      ]});
+    }
   }
 
   addTodo(val) {
-    let nextId;
-    this.state.data.length > 0 ? nextId = this.state.data.length + 1 : nextId = 1;
     const todo = {
       text: val, 
-      id: nextId,
+      id: nextId++,
       done: false
     };
+
     this.state.data.push(todo);
-    this.setState({data: this.state.data});
+    sessionStorage.setItem('data', JSON.stringify(this.state.data));
+    this.setState({data: JSON.parse(sessionStorage.getItem('data'))});
   }
 
   handleDone = (id) => {
@@ -51,9 +59,8 @@ class App extends React.Component {
       }
     });
 
-    this.setState({
-      data: nextTodos,
-    });
+    sessionStorage.setItem('data', JSON.stringify(nextTodos));
+    this.setState({data: JSON.parse(sessionStorage.getItem('data'))});
   }
 
   handleRemove(id) {
@@ -61,7 +68,8 @@ class App extends React.Component {
       if(todo.id !== id) return todo;
     });
 
-    this.setState({data: remainder});
+    sessionStorage.setItem('data', JSON.stringify(remainder));
+    this.setState({data: JSON.parse(sessionStorage.getItem('data'))});
   }
 
   render() {

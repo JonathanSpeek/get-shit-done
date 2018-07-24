@@ -4,9 +4,9 @@ const TodoList = ({todos, done, remove}) => {
   const todoNode = todos.map((todo) => {
     return (
       <TodoItem 
-        todo={todo}
-        id={todo.id}
         key={'todo-' + todo.id}
+        id={todo.id}
+        todo={todo}
         done={done}
         remove={remove}
       />
