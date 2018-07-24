@@ -11,11 +11,12 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    let cachedTodos = sessionStorage.getItem('data');
+    let cachedTodos = localStorage.getItem('data');
 
     if(cachedTodos) {
       this.setState({data: JSON.parse(cachedTodos)});
     } else {
+      nextId = 4
       this.setState({data: [
         {
           id: 1,
@@ -44,8 +45,8 @@ class App extends React.Component {
     };
 
     this.state.data.push(todo);
-    sessionStorage.setItem('data', JSON.stringify(this.state.data));
-    this.setState({data: JSON.parse(sessionStorage.getItem('data'))});
+    localStorage.setItem('data', JSON.stringify(this.state.data));
+    this.setState({data: JSON.parse(localStorage.getItem('data'))});
   }
 
   handleDone = (id) => {
@@ -59,8 +60,8 @@ class App extends React.Component {
       }
     });
 
-    sessionStorage.setItem('data', JSON.stringify(nextTodos));
-    this.setState({data: JSON.parse(sessionStorage.getItem('data'))});
+    localStorage.setItem('data', JSON.stringify(nextTodos));
+    this.setState({data: JSON.parse(localStorage.getItem('data'))});
   }
 
   handleRemove(id) {
@@ -68,8 +69,8 @@ class App extends React.Component {
       if(todo.id !== id) return todo;
     });
 
-    sessionStorage.setItem('data', JSON.stringify(remainder));
-    this.setState({data: JSON.parse(sessionStorage.getItem('data'))});
+    localStorage.setItem('data', JSON.stringify(remainder));
+    this.setState({data: JSON.parse(localStorage.getItem('data'))});
   }
 
   render() {
