@@ -1,21 +1,35 @@
 import React from 'react';
 
-class TodoList extends React.Component {
-  render() {
-    return(
-      <ul align="left" id="list">
-        <TodoItem />
-      </ul>
+const TodoList = ({todos, done, remove}) => {
+  const todoNode = todos.map((todo) => {
+    return (
+      <TodoItem 
+        todo={todo}
+        key={todo.id} 
+        done={done}
+        remove={remove}
+      />
     );
-  }
+  });
+
+  return (
+    <ul align="left" id="list">{todoNode}</ul>
+  );
 }
 
-class TodoItem extends React.Component {
-  render() {
-    return(
-      <li>Life can be overwhelming 😅</li>
-    );
-  }
+const TodoItem = ({todo, done, remove}) => {
+  return (
+    <li
+      className={todo.done ? 'checked' : ''}
+      onClick={() => { 
+        todo.done ? 
+        remove(todo.id) : 
+        done(todo.id)  
+      }}
+    >
+      {todo.text}
+    </li>
+  );
 }
 
 export default TodoList;

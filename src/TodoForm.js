@@ -1,13 +1,24 @@
 import React from 'react';
 
-class TodoForm extends React.Component {
-  render() {
-    return(
-      <form action="#">
-        <input type="text" name="item" id="item" placeholder="Add New..." />
-      </form>
-    );
-  }
-}
+const TodoForm = ({addTodo}) => {
+  let input;
+
+  return (
+    <form
+      onSubmit={() => {
+        addTodo(input.value);
+        input.value = '';
+      }}
+    >
+      <input
+        type="text"
+        placeholder="Add New..."
+        ref={node => {
+          input = node;
+        }} 
+      />
+    </form>
+  );
+};
 
 export default TodoForm;
