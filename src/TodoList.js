@@ -5,7 +5,8 @@ const TodoList = ({todos, done, remove}) => {
     return (
       <TodoItem 
         todo={todo}
-        key={todo.id} 
+        id={todo.id}
+        key={'todo-' + todo.id}
         done={done}
         remove={remove}
       />

@@ -5,7 +5,8 @@ const TodoForm = ({addTodo}) => {
 
   return (
     <form
-      onSubmit={() => {
+      onSubmit={(e) => {
+        e.preventDefault();
         addTodo(input.value);
         input.value = '';
       }}
@@ -13,9 +14,7 @@ const TodoForm = ({addTodo}) => {
       <input
         type="text"
         placeholder="Add New..."
-        ref={node => {
-          input = node;
-        }} 
+        ref={node => {input = node;}} 
       />
     </form>
   );

@@ -3,7 +3,6 @@ import Checkbox from './Checkbox';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
-window.id = 0;
 class App extends React.Component {
   state = {
     data: []
@@ -30,7 +29,13 @@ class App extends React.Component {
   }
 
   addTodo(val) {
-    const todo = {text: val, id: window.id++};
+    let nextId;
+    this.state.data.length > 0 ? nextId = this.state.data.length + 1 : nextId = 1;
+    const todo = {
+      text: val, 
+      id: nextId,
+      done: false
+    };
     this.state.data.push(todo);
     this.setState({data: this.state.data});
   }
