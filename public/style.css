@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Brandon Grotesque Black';
+  src: url('assets/brandon_blk-webfont.woff2') format('woff2'), url('assets/brandon_blk-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   background-color: #F8F8F8;
   color: #0C0533;
@@ -35,6 +42,7 @@ h1 {
   margin-bottom: 0px;
   line-height: 1;
   font-size: 48px;
+  font-family: 'Brandon Grotesque Black', arial, sans-serif;
 }
 
 img {
