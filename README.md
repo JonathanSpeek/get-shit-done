@@ -1,4 +1,4 @@
 # get-shit-done
 Minimalist Todo list app in React using local storage
 
-![Get Shit Done UI](https://mir-s3-cdn-cf.behance.net/project_modules/2800/2857ad67869085.5b48d52c72dd0.jpg)
+![Get Shit Done UI](https://mir-cdn.behance.net/v1/rendition/project_modules/2800/6ce5bb67869085.5b580563bb6f3.jpg)
