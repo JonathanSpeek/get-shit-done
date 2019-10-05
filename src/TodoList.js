@@ -3,7 +3,7 @@ import React from 'react';
 const TodoList = ({todos, done, remove}) => {
   const todoNode = todos.map((todo) => {
     return (
-      <TodoItem 
+      <TodoItem
         key={'todo-' + todo.id}
         id={todo.id}
         todo={todo}
@@ -22,10 +22,10 @@ const TodoItem = ({todo, done, remove}) => {
   return (
     <li
       className={todo.done ? 'checked' : ''}
-      onClick={() => { 
-        todo.done ? 
-        remove(todo.id) : 
-        done(todo.id)  
+      onClick={() => {
+        todo.done ?
+        remove(todo.id) :
+        done(todo.id)
       }}
     >
       {todo.text}

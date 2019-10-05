@@ -14,7 +14,7 @@ const TodoForm = ({addTodo}) => {
       <input
         type="text"
         placeholder="Add New..."
-        ref={node => {input = node;}} 
+        ref={node => {input = node;}}
       />
     </form>
   );
