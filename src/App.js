@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Checkbox from './Checkbox';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
 let nextId = 1;
-class App extends React.Component {
-  
+class App extends Component {
   state = {
-    data: []
+    data: [],
   };
 
   componentDidMount() {
     let cachedTodos = localStorage.getItem('data');
 
-    if(cachedTodos) {
+    if (cachedTodos) {
       this.setState({data: JSON.parse(cachedTodos)});
     } else {
       nextId = 4
@@ -39,7 +38,7 @@ class App extends React.Component {
 
   addTodo(val) {
     const todo = {
-      text: val, 
+      text: val,
       id: nextId++,
       done: false
     };
@@ -80,7 +79,7 @@ class App extends React.Component {
         <h1>Get Shit Done</h1>
         <div className="container">
           <TodoForm addTodo={this.addTodo.bind(this)} />
-          <TodoList 
+          <TodoList
             todos={this.state.data}
             done={this.handleDone.bind(this)}
             remove={this.handleRemove.bind(this)}
